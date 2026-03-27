@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bod Bank</title>
+    <title>Bod Bank — Копилка мечты</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: #000; color: #FFD700; }
-        .hero { text-align: center; padding: 80px 20px; }
-        .hero h1 { font-size: 56px; margin-bottom: 20px; }
-        .hero p { font-size: 20px; color: #ccc; }
-        .badge { background: #FFD700; color: #000; display: inline-block; padding: 8px 20px; border-radius: 30px; margin-top: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .card { background: #111; border-radius: 20px; padding: 30px; text-align: center; border: 1px solid #FFD700; }
-        .card-icon { font-size: 48px; margin-bottom: 20px; }
-        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
-        .card-desc { color: #aaa; font-size: 14px; }
-        .download { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); }
+        .hero h1 { font-size: 56px; margin-bottom: 20px; text-shadow: 0 0 20px #FFD700; }
+        .hero p { font-size: 18px; color: #ccc; }
+        .badge { background: #FFD700; color: #000; display: inline-block; padding: 8px 20px; border-radius: 30px; font-weight: bold; margin-top: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .card { background: #111; border-radius: 20px; padding: 25px; text-align: center; border: 1px solid #FFD700; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 48px; margin-bottom: 15px; }
+        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+        .card-desc { color: #aaa; font-size: 13px; }
+        .download { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
         .version-btns { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
-        .version-btn { padding: 12px 30px; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; border: none; }
+        .version-btn { padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 30px; cursor: pointer; border: none; transition: 0.3s; }
         .active { background: #FFD700; color: #000; }
         .inactive { background: #333; color: #FFD700; border: 1px solid #FFD700; }
-        .download-btns { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px 0; }
-        .download-btn { padding: 15px 40px; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 50px; background: #FFD700; color: #000; border: 2px solid #FFD700; }
+        .download-btns { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin: 20px 0; }
+        .download-btn { padding: 12px 35px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 50px; transition: 0.3s; background: #FFD700; color: #000; border: 2px solid #FFD700; }
         .download-btn:hover { background: transparent; color: #FFD700; }
-        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #333; color: #666; }
-        @media (max-width: 768px) { .hero h1 { font-size: 36px; } .download-btn { padding: 12px 25px; font-size: 14px; } }
+        .features-list { color: #aaa; font-size: 12px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #333; }
+        .feedback { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
+        .reviews-container { margin: 30px 0; text-align: left; max-height: 300px; overflow-y: auto; }
+        .review-item { background: #1a1a1a; padding: 15px; border-radius: 15px; margin-bottom: 15px; }
+        .review-item strong { color: #FFD700; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #1a1a1a; color: #FFD700; border: 1px solid #FFD700; border-radius: 10px; font-size: 14px; }
+        .btn-primary { background: #FFD700; color: #000; border: none; padding: 12px 30px; border-radius: 30px; font-weight: bold; cursor: pointer; margin-right: 10px; }
+        .btn-secondary { background: #333; color: #FFD700; border: 1px solid #FFD700; padding: 12px 30px; border-radius: 30px; cursor: pointer; }
+        .footer { text-align: center; padding: 30px 20px; border-top: 1px solid #333; color: #666; font-size: 13px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 36px; } .download-btn { padding: 10px 20px; font-size: 14px; } .version-btn { padding: 8px 20px; font-size: 14px; } }
     </style>
 </head>
 <body>
     <div class="hero">
-        <div style="font-size: 80px;">💰</div>
+        <div style="font-size: 70px;">💰</div>
         <h1>Bod Bank</h1>
         <p>Твои финансовые цели — всегда под контролем</p>
         <div class="badge">⭐ Версия 3.0 | Авто-транзакции | График сравнения</div>
@@ -41,16 +51,19 @@
         <div class="features">
             <div class="card"><div class="card-icon">🎯</div><div class="card-title">Управляй целями</div><div class="card-desc">Создавай цели, добавляй картинки</div></div>
             <div class="card"><div class="card-icon">✨</div><div class="card-title">Осталось до мечты</div><div class="card-desc">Сколько ещё нужно накопить</div></div>
-            <div class="card"><div class="card-icon">🤖</div><div class="card-title">Авто-транзакция</div><div class="card-desc">Ежедневное пополнение</div></div>
-            <div class="card"><div class="card-icon">📊</div><div class="card-title">График сравнения</div><div class="card-desc">Сравнивай прогресс целей</div></div>
-            <div class="card"><div class="card-icon">🏆</div><div class="card-title">Коридор славы</div><div class="card-desc">Зарабатывай награды</div></div>
+            <div class="card"><div class="card-icon">🤖</div><div class="card-title">Авто-транзакция</div><div class="card-desc">Ежедневное пополнение в выбранное время</div></div>
+            <div class="card"><div class="card-icon">📊</div><div class="card-title">График сравнения</div><div class="card-desc">Сравнивай прогресс всех целей</div></div>
+            <div class="card"><div class="card-icon">🏆</div><div class="card-title">Коридор славы</div><div class="card-desc">Зарабатывай награды за успехи</div></div>
             <div class="card"><div class="card-icon">🌐</div><div class="card-title">Смена языка</div><div class="card-desc">Русский / English</div></div>
+            <div class="card"><div class="card-icon">💬</div><div class="card-title">Отзывы</div><div class="card-desc">Делитесь впечатлениями</div></div>
+            <div class="card"><div class="card-icon">📈</div><div class="card-title">Статистика</div><div class="card-desc">Отслеживайте динамику</div></div>
+            <div class="card"><div class="card-icon">🔔</div><div class="card-title">Напоминания</div><div class="card-desc">Уведомления о целях</div></div>
         </div>
 
         <div class="download">
-            <h2>📥 Скачать Bod Bank</h2>
+            <h2 style="margin-bottom: 20px;">📥 Скачать Bod Bank</h2>
             <div class="version-btns">
-                <button id="btn-v3" class="version-btn active" onclick="showVersion('v3')">⭐ Версия 3.0</button>
+                <button id="btn-v3" class="version-btn active" onclick="showVersion('v3')">⭐ Версия 3.0 (новая)</button>
                 <button id="btn-v2" class="version-btn inactive" onclick="showVersion('v2')">📦 Версия 2.0</button>
             </div>
             <div id="v3-content">
@@ -58,29 +71,65 @@
                     <a href="https://disk.yandex.ru/d/lg6yXHAc_UcUuQ" class="download-btn" target="_blank">🐧 Linux (.deb)</a>
                     <a href="https://disk.yandex.ru/d/qXwEbeiodQuVKg" class="download-btn" target="_blank">🪟 Windows (.exe)</a>
                 </div>
-                <div class="features-list">✨ Авто-транзакции | График сравнения | Популярные цели</div>
+                <div class="features-list">✨ Авто-транзакции | График сравнения | Популярные цели | Смена языка | Коридор славы</div>
             </div>
             <div id="v2-content" style="display: none;">
                 <div class="download-btns">
                     <a href="https://disk.yandex.ru/d/s66Ry9baQ7prtw" class="download-btn" target="_blank">🐧 Linux (.deb)</a>
                     <a href="https://disk.yandex.ru/d/rSCbkyEYM7hOGg" class="download-btn" target="_blank">🪟 Windows (.exe)</a>
                 </div>
-                <div class="features-list">✅ История | Достижения | 5 тем</div>
+                <div class="features-list">✅ История операций | Достижения | 5 цветовых тем | Свои картинки | Автосохранение</div>
             </div>
         </div>
 
+        <div class="feedback">
+            <h2>💬 Отзывы пользователей</h2>
+            <div id="reviewsContainer" class="reviews-container">
+                <div class="review-item">
+                    <strong>⭐⭐⭐⭐⭐ Алексей</strong><br>
+                    "Отличное приложение! Очень удобно копить на цели. Авто-транзакции — супер!"
+                </div>
+                <div class="review-item">
+                    <strong>⭐⭐⭐⭐⭐ Мария</strong><br>
+                    "График сравнения помогает видеть прогресс. Спасибо разработчику!"
+                </div>
+                <div class="review-item">
+                    <strong>⭐⭐⭐⭐⭐ Дмитрий</strong><br>
+                    "Bod Bank — лучшая копилка! Пользуюсь каждый день."
+                </div>
+            </div>
+            <button class="btn-primary" onclick="openReviewForm()">✍️ Оставить отзыв</button>
+        </div>
+
+        <div id="reviewForm" style="display: none; background: #111; border-radius: 30px; padding: 30px; margin-bottom: 40px; border: 1px solid #FFD700;">
+            <h3>📝 Написать отзыв</h3>
+            <div class="form-group">
+                <input type="text" id="reviewName" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+                <input type="number" id="reviewRating" placeholder="Оценка (1-5)" min="1" max="5">
+            </div>
+            <div class="form-group">
+                <textarea id="reviewText" rows="4" placeholder="Ваш отзыв..."></textarea>
+            </div>
+            <button class="btn-primary" onclick="submitReview()">📨 Отправить отзыв</button>
+            <button class="btn-secondary" onclick="closeReviewForm()">❌ Закрыть</button>
+        </div>
+
         <div class="footer">
-            <p>👨‍💻 BesCop | Версия 3.0 | Бесплатно</p>
+            <p>👨‍💻 Разработчик: BesCop</p>
+            <p>📅 Версия 3.0 | Бесплатное приложение с открытым исходным кодом</p>
+            <p>💰 Bod Bank — Копи на мечту!</p>
         </div>
     </div>
 
     <script>
-        function showVersion(v) {
+        function showVersion(version) {
             const v3 = document.getElementById('v3-content');
             const v2 = document.getElementById('v2-content');
             const btn3 = document.getElementById('btn-v3');
             const btn2 = document.getElementById('btn-v2');
-            if (v === 'v3') {
+            if (version === 'v3') {
                 v3.style.display = 'block';
                 v2.style.display = 'none';
                 btn3.className = 'version-btn active';
@@ -91,6 +140,45 @@
                 btn3.className = 'version-btn inactive';
                 btn2.className = 'version-btn active';
             }
+        }
+
+        function openReviewForm() {
+            document.getElementById('reviewForm').style.display = 'block';
+        }
+
+        function closeReviewForm() {
+            document.getElementById('reviewForm').style.display = 'none';
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewRating').value = '';
+            document.getElementById('reviewText').value = '';
+        }
+
+        function submitReview() {
+            const name = document.getElementById('reviewName').value;
+            const rating = document.getElementById('reviewRating').value;
+            const text = document.getElementById('reviewText').value;
+            
+            if (!name || !rating || !text) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            if (rating < 1 || rating > 5) {
+                alert('Оценка должна быть от 1 до 5');
+                return;
+            }
+            
+            const stars = '⭐'.repeat(parseInt(rating));
+            
+            const newReview = document.createElement('div');
+            newReview.className = 'review-item';
+            newReview.innerHTML = `<strong>${stars} ${name}</strong><br>${text}`;
+            
+            const container = document.getElementById('reviewsContainer');
+            container.insertBefore(newReview, container.firstChild);
+            
+            closeReviewForm();
+            alert('Спасибо за отзыв!');
         }
     </script>
 </body>
