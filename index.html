@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bod Bank</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #000; color: #FFD700; }
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 56px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; color: #ccc; }
+        .badge { background: #FFD700; color: #000; display: inline-block; padding: 8px 20px; border-radius: 30px; margin-top: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { background: #111; border-radius: 20px; padding: 30px; text-align: center; border: 1px solid #FFD700; }
+        .card-icon { font-size: 48px; margin-bottom: 20px; }
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .card-desc { color: #aaa; font-size: 14px; }
+        .download { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; }
+        .version-btns { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .version-btn { padding: 12px 30px; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; border: none; }
+        .active { background: #FFD700; color: #000; }
+        .inactive { background: #333; color: #FFD700; border: 1px solid #FFD700; }
+        .download-btns { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px 0; }
+        .download-btn { padding: 15px 40px; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 50px; background: #FFD700; color: #000; border: 2px solid #FFD700; }
+        .download-btn:hover { background: transparent; color: #FFD700; }
+        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #333; color: #666; }
+        @media (max-width: 768px) { .hero h1 { font-size: 36px; } .download-btn { padding: 12px 25px; font-size: 14px; } }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div style="font-size: 80px;">💰</div>
+        <h1>Bod Bank</h1>
+        <p>Твои финансовые цели — всегда под контролем</p>
+        <div class="badge">⭐ Версия 3.0 | Авто-транзакции | График сравнения</div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="card"><div class="card-icon">🎯</div><div class="card-title">Управляй целями</div><div class="card-desc">Создавай цели, добавляй картинки</div></div>
+            <div class="card"><div class="card-icon">✨</div><div class="card-title">Осталось до мечты</div><div class="card-desc">Сколько ещё нужно накопить</div></div>
+            <div class="card"><div class="card-icon">🤖</div><div class="card-title">Авто-транзакция</div><div class="card-desc">Ежедневное пополнение</div></div>
+            <div class="card"><div class="card-icon">📊</div><div class="card-title">График сравнения</div><div class="card-desc">Сравнивай прогресс целей</div></div>
+            <div class="card"><div class="card-icon">🏆</div><div class="card-title">Коридор славы</div><div class="card-desc">Зарабатывай награды</div></div>
+            <div class="card"><div class="card-icon">🌐</div><div class="card-title">Смена языка</div><div class="card-desc">Русский / English</div></div>
+        </div>
+
+        <div class="download">
+            <h2>📥 Скачать Bod Bank</h2>
+            <div class="version-btns">
+                <button id="btn-v3" class="version-btn active" onclick="showVersion('v3')">⭐ Версия 3.0</button>
+                <button id="btn-v2" class="version-btn inactive" onclick="showVersion('v2')">📦 Версия 2.0</button>
+            </div>
+            <div id="v3-content">
+                <div class="download-btns">
+                    <a href="https://disk.yandex.ru/d/lg6yXHAc_UcUuQ" class="download-btn" target="_blank">🐧 Linux (.deb)</a>
+                    <a href="#" class="download-btn" target="_blank">🪟 Windows (.exe)</a>
+                </div>
+                <div class="features-list">✨ Авто-транзакции | График сравнения | Популярные цели</div>
+            </div>
+            <div id="v2-content" style="display: none;">
+                <div class="download-btns">
+                    <a href="https://disk.yandex.ru/d/s66Ry9baQ7prtw" class="download-btn" target="_blank">🐧 Linux (.deb)</a>
+                    <a href="https://disk.yandex.ru/d/rSCbkyEYM7hOGg" class="download-btn" target="_blank">🪟 Windows (.exe)</a>
+                </div>
+                <div class="features-list">✅ История | Достижения | 5 тем</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>👨‍💻 BesCop | Версия 3.0 | Бесплатно</p>
+        </div>
+    </div>
+
+    <script>
+        function showVersion(v) {
+            const v3 = document.getElementById('v3-content');
+            const v2 = document.getElementById('v2-content');
+            const btn3 = document.getElementById('btn-v3');
+            const btn2 = document.getElementById('btn-v2');
+            if (v === 'v3') {
+                v3.style.display = 'block';
+                v2.style.display = 'none';
+                btn3.className = 'version-btn active';
+                btn2.className = 'version-btn inactive';
+            } else {
+                v3.style.display = 'none';
+                v2.style.display = 'block';
+                btn3.className = 'version-btn inactive';
+                btn2.className = 'version-btn active';
+            }
+        }
+    </script>
+</body>
+</html>
