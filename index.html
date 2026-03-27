@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bod Bank — Копилка мечты</title>
+    <meta name="yandex-verification" content="44be5bfee6d87958" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: #000; color: #FFD700; }
@@ -27,8 +28,6 @@
         .download-btn { padding: 12px 35px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 50px; transition: 0.3s; background: #FFD700; color: #000; border: 2px solid #FFD700; }
         .download-btn:hover { background: transparent; color: #FFD700; }
         .features-list { color: #aaa; font-size: 12px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #333; }
-        
-        /* Стили для секций */
         .feedback, .suggestions, .support { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
         .reviews-container { margin: 30px 0; text-align: left; max-height: 300px; overflow-y: auto; }
         .review-item { background: #1a1a1a; padding: 15px; border-radius: 15px; margin-bottom: 15px; }
@@ -218,7 +217,6 @@
             if (!name) { alert('Введите ваше имя!'); return; }
             if (!text) { alert('Введите текст предложения!'); return; }
             
-            // Отправляем на почту через mailto
             const subject = encodeURIComponent(`Предложение по улучшению от ${name}`);
             const body = encodeURIComponent(`Имя: ${name}\n\nПредложение:\n${text}`);
             window.location.href = `mailto:support.raspisai.ki@gmail.com?subject=${subject}&body=${body}`;
@@ -228,7 +226,6 @@
             document.getElementById('suggestionText').value = '';
         };
 
-        // Загружаем отзывы при открытии
         loadReviews();
     </script>
 </body>
