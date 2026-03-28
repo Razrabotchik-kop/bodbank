@@ -19,7 +19,7 @@
         .card-icon { font-size: 48px; margin-bottom: 15px; }
         .card-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
         .card-desc { color: #aaa; font-size: 13px; }
-        .download { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
+        .download-section { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
         .version-btns { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
         .version-btn { padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 30px; cursor: pointer; border: none; transition: 0.3s; }
         .active { background: #FFD700; color: #000; }
@@ -30,7 +30,7 @@
         .features-list { color: #aaa; font-size: 12px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #333; }
         .old-versions { margin-top: 30px; padding-top: 20px; border-top: 1px solid #FFD700; }
         .old-versions h3 { margin-bottom: 15px; }
-        .old-version-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .old-version-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .old-btn { display: inline-block; padding: 8px 20px; font-size: 14px; font-weight: bold; text-decoration: none; border-radius: 25px; background: #333; color: #FFD700; border: 1px solid #FFD700; transition: 0.3s; }
         .old-btn:hover { background: #FFD700; color: #000; }
         .feedback, .suggestions, .support { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
@@ -45,7 +45,6 @@
         .support-email a { color: #FFD700; font-size: 18px; text-decoration: none; }
         .support-email a:hover { text-decoration: underline; }
         .footer { text-align: center; padding: 30px 20px; border-top: 1px solid #333; color: #666; font-size: 13px; }
-        .badge-soon { background: #FFD700; color: #000; font-size: 12px; padding: 2px 8px; border-radius: 20px; margin-left: 10px; }
         @media (max-width: 768px) { .hero h1 { font-size: 36px; } .download-btn { padding: 10px 20px; font-size: 14px; } .version-btn { padding: 8px 20px; font-size: 14px; } }
     </style>
 </head>
@@ -54,7 +53,7 @@
         <div style="font-size: 70px;">💰</div>
         <h1>Bod Bank</h1>
         <p>Твои финансовые цели — всегда под контролем</p>
-        <div class="badge">⭐ Актуальная версия 3.1 | Авто-транзакции | Редактирование целей</div>
+        <div class="badge">⭐ Актуальная версия 4.1 | Авто-транзакции | Калькулятор накоплений | Выбор валюты</div>
     </div>
 
     <div class="container">
@@ -62,39 +61,39 @@
             <div class="card"><div class="card-icon">🎯</div><div class="card-title">Управляй целями</div><div class="card-desc">Создавай цели, добавляй картинки</div></div>
             <div class="card"><div class="card-icon">✨</div><div class="card-title">Осталось до мечты</div><div class="card-desc">Сколько ещё нужно накопить</div></div>
             <div class="card"><div class="card-icon">🤖</div><div class="card-title">Авто-транзакция</div><div class="card-desc">Ежедневное пополнение в выбранное время</div></div>
-            <div class="card"><div class="card-icon">✏️</div><div class="card-title">Редактирование целей</div><div class="card-desc">Меняй название, стоимость, картинку</div></div>
+            <div class="card"><div class="card-icon">🧮</div><div class="card-title">Калькулятор накоплений</div><div class="card-desc">Рассчитай график пополнений</div></div>
             <div class="card"><div class="card-icon">📊</div><div class="card-title">График сравнения</div><div class="card-desc">Сравнивай прогресс всех целей</div></div>
             <div class="card"><div class="card-icon">🏆</div><div class="card-title">Коридор славы</div><div class="card-desc">Зарабатывай награды за успехи</div></div>
             <div class="card"><div class="card-icon">🌐</div><div class="card-title">Смена языка</div><div class="card-desc">Русский / English</div></div>
             <div class="card"><div class="card-icon">🎨</div><div class="card-title">3 цветовые темы</div><div class="card-desc">Чёрно-жёлтая, светлая, тёмная</div></div>
+            <div class="card"><div class="card-icon">💱</div><div class="card-title">Выбор валюты</div><div class="card-desc">RUB, USD, EUR, KZT</div></div>
             <div class="card"><div class="card-icon">💬</div><div class="card-title">Отзывы</div><div class="card-desc">Делитесь впечатлениями</div></div>
             <div class="card"><div class="card-icon">💡</div><div class="card-title">Предложения</div><div class="card-desc">Помогите сделать приложение лучше</div></div>
             <div class="card"><div class="card-icon">📧</div><div class="card-title">Поддержка</div><div class="card-desc">Поможем решить любые вопросы</div></div>
         </div>
 
-        <div class="download">
+        <div class="download-section">
             <h2 style="margin-bottom: 20px;">📥 Скачать Bod Bank</h2>
             
             <div class="version-btns">
-                <button id="btn-current" class="version-btn active" onclick="showVersion('current')">⭐ Версия 3.1 (актуальная)</button>
-                <button id="btn-soon" class="version-btn inactive" onclick="showVersion('soon')">🔥 Версия 4.0 (СКОРО)</button>
+                <button id="btn-v41" class="version-btn active" onclick="showVersion('v41')">⭐ Версия 4.1 (новая)</button>
+                <button id="btn-v40" class="version-btn inactive" onclick="showVersion('v40')">📦 Версия 4.0</button>
             </div>
             
-            <div id="current-content">
+            <div id="v41-content">
                 <div class="download-btns">
-                    <a href="https://disk.yandex.ru/d/uKiaX1omK2RXvw" class="download-btn btn-linux" target="_blank">🐧 Linux (.deb)</a>
-                    <a href="https://disk.yandex.ru/d/8HLaDJQ4x12UFg" class="download-btn btn-windows" target="_blank">🪟 Windows (.exe)</a>
+                    <a href="https://disk.yandex.ru/d/nl0UVE43GYxP3A" class="download-btn btn-linux" target="_blank">🐧 Linux (.deb)</a>
+                    <a href="https://disk.yandex.ru/d/llE6mfR_OiC_TQ" class="download-btn btn-windows" target="_blank">🪟 Windows (.exe)</a>
                 </div>
-                <div class="features-list">✨ Авто-транзакции | Редактирование целей | 3 темы | Уведомления | График сравнения</div>
+                <div class="features-list">✨ Авто-транзакции | Калькулятор накоплений | Выбор валюты | Виджет в трее | График сравнения | 3 темы</div>
             </div>
             
-            <div id="soon-content" style="display: none;">
+            <div id="v40-content" style="display: none;">
                 <div class="download-btns">
-                    <div class="download-btn" style="background: #333; color: #FFD700; border: 2px solid #FFD700; cursor: default;">🐧 Linux (.deb) — <span style="color:#FFD700;">Скоро</span></div>
-                    <div class="download-btn" style="background: #333; color: #FFD700; border: 2px solid #FFD700; cursor: default;">🪟 Windows (.exe) — <span style="color:#FFD700;">Скоро</span></div>
+                    <a href="https://disk.yandex.ru/d/uIfEcxTOVR4EDQ" class="download-btn btn-linux" target="_blank">🐧 Linux (.deb)</a>
+                    <a href="https://disk.yandex.ru/d/UqJCRmYEOz4zYA" class="download-btn btn-windows" target="_blank">🪟 Windows (.exe)</a>
                 </div>
-                <div class="features-list">🔥 Анонс: новые функции, улучшенный интерфейс, облачная синхронизация, статистика, экспорт данных, виджеты и многое другое!</div>
-                <div style="margin-top: 15px; font-size: 14px; color: #FFD700;">⏳ Следите за обновлениями! Дата выхода: апрель 2026</div>
+                <div class="features-list">✅ Авто-транзакции | Редактирование целей | 3 темы | Экспорт CSV | Облако (интерфейс)</div>
             </div>
             
             <div class="old-versions">
@@ -158,28 +157,28 @@
 
         <div class="footer">
             <p>👨‍💻 Разработчик: BesCop</p>
-            <p>📅 Актуальная версия 3.1 | Следующая версия 4.0 — скоро</p>
+            <p>📅 Актуальная версия 4.1 | Новая: авто-транзакции, калькулятор накоплений, выбор валюты</p>
             <p>💰 Bod Bank — Копи на мечту!</p>
         </div>
     </div>
 
     <script>
         function showVersion(version) {
-            const currentBtn = document.getElementById('btn-current');
-            const soonBtn = document.getElementById('btn-soon');
-            const currentContent = document.getElementById('current-content');
-            const soonContent = document.getElementById('soon-content');
+            const v41btn = document.getElementById('btn-v41');
+            const v40btn = document.getElementById('btn-v40');
+            const v41 = document.getElementById('v41-content');
+            const v40 = document.getElementById('v40-content');
             
-            if (version === 'current') {
-                currentBtn.className = 'version-btn active';
-                soonBtn.className = 'version-btn inactive';
-                currentContent.style.display = 'block';
-                soonContent.style.display = 'none';
+            if (version === 'v41') {
+                v41btn.className = 'version-btn active';
+                v40btn.className = 'version-btn inactive';
+                v41.style.display = 'block';
+                v40.style.display = 'none';
             } else {
-                currentBtn.className = 'version-btn inactive';
-                soonBtn.className = 'version-btn active';
-                currentContent.style.display = 'none';
-                soonContent.style.display = 'block';
+                v41btn.className = 'version-btn inactive';
+                v40btn.className = 'version-btn active';
+                v41.style.display = 'none';
+                v40.style.display = 'block';
             }
         }
 
