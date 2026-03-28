@@ -33,6 +33,17 @@
         .old-version-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .old-btn { display: inline-block; padding: 8px 20px; font-size: 14px; font-weight: bold; text-decoration: none; border-radius: 25px; background: #333; color: #FFD700; border: 1px solid #FFD700; transition: 0.3s; }
         .old-btn:hover { background: #FFD700; color: #000; }
+        .feedback, .suggestions, .support { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #FFD700; margin-bottom: 40px; }
+        .reviews-container { margin: 30px 0; text-align: left; max-height: 300px; overflow-y: auto; }
+        .review-item { background: #1a1a1a; padding: 15px; border-radius: 15px; margin-bottom: 15px; }
+        .review-item strong { color: #FFD700; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #1a1a1a; color: #FFD700; border: 1px solid #FFD700; border-radius: 10px; font-size: 14px; }
+        .btn-primary { background: #FFD700; color: #000; border: none; padding: 12px 30px; border-radius: 30px; font-weight: bold; cursor: pointer; margin-right: 10px; }
+        .btn-secondary { background: #333; color: #FFD700; border: 1px solid #FFD700; padding: 12px 30px; border-radius: 30px; cursor: pointer; }
+        .support-email { background: #1a1a1a; padding: 20px; border-radius: 15px; margin-top: 20px; display: inline-block; }
+        .support-email a { color: #FFD700; font-size: 18px; text-decoration: none; }
+        .support-email a:hover { text-decoration: underline; }
         .footer { text-align: center; padding: 30px 20px; border-top: 1px solid #333; color: #666; font-size: 13px; }
         .badge-soon { background: #FFD700; color: #000; font-size: 12px; padding: 2px 8px; border-radius: 20px; margin-left: 10px; }
         @media (max-width: 768px) { .hero h1 { font-size: 36px; } .download-btn { padding: 10px 20px; font-size: 14px; } .version-btn { padding: 8px 20px; font-size: 14px; } }
@@ -56,6 +67,9 @@
             <div class="card"><div class="card-icon">🏆</div><div class="card-title">Коридор славы</div><div class="card-desc">Зарабатывай награды за успехи</div></div>
             <div class="card"><div class="card-icon">🌐</div><div class="card-title">Смена языка</div><div class="card-desc">Русский / English</div></div>
             <div class="card"><div class="card-icon">🎨</div><div class="card-title">3 цветовые темы</div><div class="card-desc">Чёрно-жёлтая, светлая, тёмная</div></div>
+            <div class="card"><div class="card-icon">💬</div><div class="card-title">Отзывы</div><div class="card-desc">Делитесь впечатлениями</div></div>
+            <div class="card"><div class="card-icon">💡</div><div class="card-title">Предложения</div><div class="card-desc">Помогите сделать приложение лучше</div></div>
+            <div class="card"><div class="card-icon">📧</div><div class="card-title">Поддержка</div><div class="card-desc">Поможем решить любые вопросы</div></div>
         </div>
 
         <div class="download">
@@ -86,12 +100,60 @@
             <div class="old-versions">
                 <h3>📦 Скачать старые версии</h3>
                 <div class="old-version-btns">
-                    <a href="https://disk.yandex.ru/d/s66Ry9baQ7prtw" class="old-btn" target="_blank">📀 Версия 2.0 (Linux)</a>
-                    <a href="https://disk.yandex.ru/d/rSCbkyEYM7hOGg" class="old-btn" target="_blank">📀 Версия 2.0 (Windows)</a>
                     <a href="https://disk.yandex.ru/d/lg6yXHAc_UcUuQ" class="old-btn" target="_blank">📀 Версия 3.0 (Linux)</a>
                     <a href="https://disk.yandex.ru/d/qXwEbeiodQuVKg" class="old-btn" target="_blank">📀 Версия 3.0 (Windows)</a>
+                    <a href="https://disk.yandex.ru/d/s66Ry9baQ7prtw" class="old-btn" target="_blank">📀 Версия 2.0 (Linux)</a>
+                    <a href="https://disk.yandex.ru/d/rSCbkyEYM7hOGg" class="old-btn" target="_blank">📀 Версия 2.0 (Windows)</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Отзывы -->
+        <div class="feedback">
+            <h2>💬 Отзывы пользователей</h2>
+            <div id="reviewsContainer" class="reviews-container">
+                <div style="text-align: center; color: #aaa; padding: 30px;">Загрузка отзывов...</div>
+            </div>
+            <button class="btn-primary" onclick="openReviewForm()">✍️ Оставить отзыв</button>
+        </div>
+
+        <!-- Форма отзыва (скрыта) -->
+        <div id="reviewForm" style="display: none; background: #111; border-radius: 30px; padding: 30px; margin-bottom: 40px; border: 1px solid #FFD700;">
+            <h3>📝 Написать отзыв</h3>
+            <div class="form-group">
+                <input type="text" id="reviewName" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+                <input type="number" id="reviewRating" placeholder="Оценка (1-5)" min="1" max="5">
+            </div>
+            <div class="form-group">
+                <textarea id="reviewText" rows="4" placeholder="Ваш отзыв..."></textarea>
+            </div>
+            <button class="btn-primary" onclick="submitReview()">📨 Отправить отзыв</button>
+            <button class="btn-secondary" onclick="closeReviewForm()">❌ Закрыть</button>
+        </div>
+
+        <!-- Предложения по улучшению -->
+        <div class="suggestions">
+            <h2>💡 Предложения по улучшению</h2>
+            <p style="color: #ccc; margin-bottom: 20px;">Помогите сделать Bod Bank лучше! Напишите, что бы вы хотели добавить или изменить.</p>
+            <div class="form-group">
+                <input type="text" id="suggestionName" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+                <textarea id="suggestionText" rows="4" placeholder="Ваше предложение..."></textarea>
+            </div>
+            <button class="btn-primary" onclick="submitSuggestion()">📨 Отправить предложение</button>
+        </div>
+
+        <!-- Поддержка -->
+        <div class="support">
+            <h2>📧 Поддержка</h2>
+            <p style="color: #ccc; margin-bottom: 20px;">Возникли вопросы? Напишите нам на почту, и мы обязательно поможем!</p>
+            <div class="support-email">
+                <a href="mailto:support.raspisai.ki@gmail.com">📧 support.raspisai.ki@gmail.com</a>
+            </div>
+            <p style="color: #aaa; font-size: 12px; margin-top: 20px;">Ответим в течение 24 часов</p>
         </div>
 
         <div class="footer">
@@ -120,6 +182,74 @@
                 soonContent.style.display = 'block';
             }
         }
+
+        // ========== ОТЗЫВЫ ==========
+        function loadReviews() {
+            const saved = localStorage.getItem('bodbank_reviews');
+            const container = document.getElementById('reviewsContainer');
+            
+            if (saved && JSON.parse(saved).length > 0) {
+                const reviews = JSON.parse(saved);
+                container.innerHTML = '';
+                reviews.forEach(review => {
+                    const div = document.createElement('div');
+                    div.className = 'review-item';
+                    div.innerHTML = `<strong>${'⭐'.repeat(review.rating)} ${review.name}</strong><br>${review.text}`;
+                    container.appendChild(div);
+                });
+            } else {
+                container.innerHTML = '<div style="text-align: center; color: #aaa; padding: 30px;">Пока нет отзывов. Будьте первым!</div>';
+            }
+        }
+
+        function saveReview(name, rating, text) {
+            const saved = localStorage.getItem('bodbank_reviews');
+            const reviews = saved ? JSON.parse(saved) : [];
+            reviews.unshift({ name, rating, text, date: new Date().toLocaleString() });
+            localStorage.setItem('bodbank_reviews', JSON.stringify(reviews));
+        }
+
+        window.submitReview = function() {
+            const name = document.getElementById('reviewName').value.trim();
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const text = document.getElementById('reviewText').value.trim();
+            
+            if (!name) { alert('Введите ваше имя!'); return; }
+            if (!rating || rating < 1 || rating > 5) { alert('Оценка должна быть от 1 до 5'); return; }
+            if (!text) { alert('Введите текст отзыва!'); return; }
+            
+            saveReview(name, rating, text);
+            loadReviews();
+            closeReviewForm();
+            alert('Спасибо за отзыв!');
+        };
+
+        function openReviewForm() { document.getElementById('reviewForm').style.display = 'block'; }
+        function closeReviewForm() {
+            document.getElementById('reviewForm').style.display = 'none';
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewRating').value = '';
+            document.getElementById('reviewText').value = '';
+        }
+
+        // ========== ПРЕДЛОЖЕНИЯ ==========
+        window.submitSuggestion = function() {
+            const name = document.getElementById('suggestionName').value.trim();
+            const text = document.getElementById('suggestionText').value.trim();
+            
+            if (!name) { alert('Введите ваше имя!'); return; }
+            if (!text) { alert('Введите текст предложения!'); return; }
+            
+            const subject = encodeURIComponent(`Предложение по улучшению от ${name}`);
+            const body = encodeURIComponent(`Имя: ${name}\n\nПредложение:\n${text}`);
+            window.location.href = `mailto:support.raspisai.ki@gmail.com?subject=${subject}&body=${body}`;
+            
+            alert('Спасибо за предложение! Откроется почтовое приложение — просто отправьте письмо.');
+            document.getElementById('suggestionName').value = '';
+            document.getElementById('suggestionText').value = '';
+        };
+
+        loadReviews();
     </script>
 </body>
 </html>
